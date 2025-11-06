@@ -13,13 +13,13 @@ namespace StudentRecordsApp.Controllers
             _context = context;
         }
 
-        // GET: Students/Create
+        // Students/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Students/Create
+        // Students/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Student student)
@@ -28,12 +28,12 @@ namespace StudentRecordsApp.Controllers
             {
                 _context.Students.Add(student);
                 _context.SaveChanges();
-                return RedirectToAction(nameof(Index)); // ✅ Redirect after save
+                return RedirectToAction(nameof(Index));
             }
             return View(student);
         }
 
-        // GET: Students
+        // Students Lists
         public IActionResult Index()
         {
             var students = _context.Students.ToList();
